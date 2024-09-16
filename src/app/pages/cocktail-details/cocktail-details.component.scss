@@ -1,0 +1,27 @@
+.cocktail-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.nz-col {
+  padding: 0;
+}
+
+.icon-star {
+  cursor: pointer;
+  color: gray;
+  transition: color 0.3s;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-star.active {
+  color: gold;
+}
+
+svg {
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+}

@@ -1,0 +1,33 @@
+<div *ngIf="cocktail$ | async as cocktail">
+  <nz-row nzAlign="middle" style="padding-top: 20px">
+    <div (click)="goBack()" style="cursor: pointer">
+      <span nz-icon nzType="home"></span>
+      <span style="margin-left: 4px">Back</span>
+    </div>
+  </nz-row>
+  <nz-row style="display: flex; align-items: stretch; padding-top: 20px">
+    <nz-col nzSpan="12" style="display: flex; align-items: stretch;">
+      <img [src]="cocktail.imageUrl" [alt]="cocktail.name" class="cocktail-image"/>
+    </nz-col>
+    <nz-col nzSpan="12" style="display: flex; flex-direction: column; justify-content: center; padding: 10px">
+      <nz-row nzAlign="middle">
+        <h1>{{ cocktail.name }}</h1>
+        <svg class="icon-star"
+             [class.active]="isFavorite$ | async"
+             (click)="toggleFavorite(cocktail)"
+             [attr.id]="'star-' + cocktail.id"
+             style="margin-left: 4px">
+          <use href="#star-icon"></use>
+        </svg>
+      </nz-row>
+      <p><strong>Type:</strong>
+        <nz-tag [nzColor]="cocktail.isAlcoholic ? 'geekblue' : 'green'"
+                style="border-radius: 32px; margin-left: 8px">
+          <span style="font-size: 12px">{{ cocktail.isAlcoholic ? 'Alcoholic' : 'Non Alcoholic' }}</span>
+        </nz-tag>
+      </p>
+      <p><strong>Ingredients:</strong> {{ cocktail.ingredients.join(', ') }}</p>
+      <p><strong>Instructions:</strong> {{ cocktail.instructions }}</p>
+    </nz-col>
+  </nz-row>
+</div>

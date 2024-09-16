@@ -1,0 +1,29 @@
+<nz-row style="padding-left: 20px; padding-top: 20px">
+  <span style="font-weight: bold">Filters:</span>
+</nz-row>
+<nz-row style="padding-left: 20px; padding-top: 20px">
+  <input (keyup)="onSearch($event)" placeholder="Search by Cocktail name" style="margin: 0">
+</nz-row>
+
+<div class="cocktail-container">
+  <div class="cocktail-card" *ngFor="let cocktail of filteredCocktailList">
+    <div class="cocktail-image-container">
+      <img [src]="cocktail.imageUrl" [alt]="cocktail.name" class="cocktail-image"/>
+    </div>
+    <div class="cocktail-info">
+      <div class="info-header">
+        <h2 (click)="navigateToDetails(cocktail.id)" style="cursor: pointer;">{{ cocktail.name }}</h2>
+        <svg class="icon-star"
+             [class.active]="isFavorite(cocktail)"
+             (click)="toggleFavorite(cocktail)"
+             [attr.id]="'star-' + cocktail.id">
+          <use href="#star-icon"></use>
+        </svg>
+      </div>
+      <nz-tag [nzColor]="cocktail.isAlcoholic ? 'geekblue' : 'green'" style="border-radius: 32px">
+        <span style="font-size: 12px">{{ cocktail.isAlcoholic ? 'Alcoholic' : 'Non Alcoholic' }}</span>
+      </nz-tag>
+      <p style="font-size: 12px">{{ cocktail.ingredients.join(' | ') }}</p>
+    </div>
+  </div>
+</div>

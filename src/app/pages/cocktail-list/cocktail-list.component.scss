@@ -1,0 +1,64 @@
+.cocktail-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cocktail-card {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cocktail-image-container {
+  flex: 0 0 150px;
+  margin-right: 20px;
+}
+
+.cocktail-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon-star {
+  cursor: pointer;
+  color: gray;
+  transition: color 0.3s;
+  width: 24px;
+  height: 24px;
+}
+
+.icon-star.active {
+  color: gold;
+}
+
+svg {
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+}
